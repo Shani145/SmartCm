@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" data-th-href="@{'/output.css'}">
+    <title>Scm</title>
+    <style>
+        .s{
+            margin: auto;
+            width: 50%;
+            padding: 30px;
+            background: #e9c4c4;
+
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-red-300 w-1/2 p-4 mx-auto mt-4">
+        <h1 data-th-text="${name}">Hello Spring Boot learner  </h1>
+        <p>Youtube channel :<span data-th-text="${YouTubeChannel}"></span></p>
+        <a data-th-href="${GithubRepository}">click to open </a>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus, molestias.</p>
+       
+    </div>
+</body>
+</html>
