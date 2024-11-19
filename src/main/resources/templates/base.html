@@ -1,7 +1,31 @@
-<div  th:fragment = "parent(content)">
-   <h1>this is parent fragment </h1>
-   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, quisquam!</p>
-   
-   <div th:replace="${content}"></div>
+<!DOCTYPE html>
+<html 
+class="light"
+lang="en" th:fragment ="parent(content,title,script)" xmlns:th="http://www.thymeleaf.org">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title data-th-replace="${title}">Base Page</title>
+   <link rel="stylesheet" data-th-href="@{'/output.css'}">
+   <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css"  rel="stylesheet" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css" integrity="sha512-9xKTRVabjVeZmc+GUW8GgSmcREDunMM+Dt/GrzchfN8tkwHizc5RP4Ok/MXFFy5rIjJjzhndFScTceq5e6GvVQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class=" dark:bg-gray-900 dark:text-white">
+   <!--comman Header-->
+   <div data-th-replace="navbar :: navbar">
 
-</div>
+   </div>
+   <!--- Main Content -->
+   <div class="p-4">
+      <section data-th-replace="${content}"></section>
+   </div>
+
+   </section>
+  <footer class="p-4">
+    &copy; 2022 SmartCm. All rights reserved.  &nbsp; | &nbsp; Powered by Spring Boot.  &nbsp; | &nbsp; <a href="#">Contact Us</a>  &nbsp; | &nbsp; <a href="#">Privacy Policy</a>  &nbsp; | &nbsp; <a href="#">Terms & Conditions</a>  &nbsp; | &nbsp; <a href="#">Cookie Policy</a>  &nbsp; | &nbsp; <a href="#">Help</a>  &nbsp; | &nbsp; <a href="#">FAQ</a>  &nbsp; | &nbsp; <a href="#">Sitemap</a>  &nbsp; | &nbsp; <a href="#">Careers</a>  &nbsp; | &nbsp; <a href="#">Press</a>  &nbsp; | &nbsp; <a href="#">Blog</a>  &nbsp
+  </footer>
+   <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+   <script data-th-src="@{'/js/script.js'}"></script>
+   <th:block data-th-replace="${script}"></th:block>
+</body>
+</html>
