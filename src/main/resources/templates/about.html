@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+</head>
+<body>
+    This is about page 
+    <!-- using Fragment-->
+     <div th:replace="~{base::parent(~{::#s})}">
+        <section id="s">
+            <h2>Dynamic Content </h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe totam deserunt facilis. Est aliquam mollitia quae optio? Maiores ipsa, qui corporis ipsam sunt illo dolore sequi corrupti sint rerum atque.</p>
+            <button>click to see Dynamic content </button>
+        </section>
+
+     </div>
+</body>
+</html>
