@@ -1,9 +1,5 @@
 package com.SmartCM.SmartCm.entities;
 
-
-
-
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +16,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
+// Entity Class representing a User
 @Entity(name = "user")
 @Table(name = "user")
 @Getter
@@ -28,41 +24,39 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-
 public class User {
 
-   
-   
-   
-    
-
     @Id
-    private String useId;
-    @Column(name = "username",nullable = false)
-    private String username;
-    @Column(unique = true,nullable = false)
+    private String userId;
+
+    @Column(name = "user_name", nullable = false)
+    private String name;
+
+    @Column(unique = true, nullable = false)
     private String email;
 
     private String password;
+
     @Column(length = 1000)
     private String about;
+
     @Column(length = 1000)
     private String profilePic;
+
     private String phoneNumber;
 
-    //Information
+    // Account status
     private boolean enabled = false;
     private boolean emailVerified = false;
     private boolean phoneVerified = false;
 
-//self ,google ,facebook ,linkedin ,github ,
+    // Authentication provider details
+    
     private Providers provider = Providers.SELF;
     private String providerUserId;
 
-    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
-private List<Contact> contacts = new ArrayList<Contact>();
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    private List<Contact> contacts = new ArrayList<>();
 
-
-
-
+    // Removed unused and unimplemented methods
 }
