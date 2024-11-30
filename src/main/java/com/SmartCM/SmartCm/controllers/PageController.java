@@ -18,12 +18,17 @@ import com.SmartCM.SmartCm.helpers.message;
 import com.SmartCM.SmartCm.services.UserService;
 
 import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
 
 @Controller
 public class PageController {
 
     @Autowired
     private UserService userService;
+    @GetMapping("/")
+    public  String index(){
+        return "redirect:/home";
+    }
 
     // Other methods omitted for brevity
     // Home Page
@@ -72,8 +77,11 @@ public class PageController {
 
     // Processing Registration
     @RequestMapping(value = "/do-register", method = RequestMethod.POST)
-    public String processRegister(@ModelAttribute UserForm userForm,BindingResult rBindingResult, HttpSession session) {
+    public String processRegister(@Valid @ModelAttribute UserForm userForm,BindingResult rBindingResult, HttpSession session) {
         System.out.println("Processing Registration");
+        if(rBindingResult.hasErrors()){
+            return "register";
+        }
 
         // Create and populate User entity
         User user = new User();
